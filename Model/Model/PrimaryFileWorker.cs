@@ -11,7 +11,15 @@ namespace FileComparator
 
         public Text ReadFile(string filePath)
         {
-            string text = System.IO.File.ReadAllText(filePath);
+            string text;
+            try
+            {
+                text = System.IO.File.ReadAllText(filePath);
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
             var resultObject = new Text();
             resultObject.Directory = filePath;
             resultObject.Content = text;

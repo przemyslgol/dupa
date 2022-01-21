@@ -43,3 +43,4 @@ D:\Przemek\Dokumenty\Studia\IO\GUI\TextComparatorGUI\View\obj\Debug\net5.0-windo
 D:\Przemek\Dokumenty\Studia\IO\GUI\TextComparatorGUI\View\obj\Debug\net5.0-windows\ref\TextComparatorGUI.dll
 D:\Przemek\Dokumenty\Studia\IO\GUI\TextComparatorGUI\View\obj\Debug\net5.0-windows\TextComparatorGUI.pdb
 D:\Przemek\Dokumenty\Studia\IO\GUI\TextComparatorGUI\View\obj\Debug\net5.0-windows\TextComparatorGUI.genruntimeconfig.cache
+D:\Przemek\Dokumenty\Studia\IO\GUI\TextComparatorGUI\View\obj\Debug\net5.0-windows\TextComparatorGUI.csproj.CopyComplete

@@ -13,35 +13,56 @@ namespace TextComparatorGUI
 {
     public partial class OpenFile : System.Windows.Forms.Form
     {
+        Difference difference;
+
+        private Text firstText;
+        private Text secondText;
+        ITextComparator textComparator;
+
         public PrimaryFileWorker fileWorker;
-        public OpenFile()
+        public OpenFile(PrimaryFileWorker fileWorker, ITextComparator textComparator)
         {
-            fileWorker = new PrimaryFileWorker();
+            this.fileWorker = fileWorker;
+            this.textComparator = textComparator;
             InitializeComponent();
         }
 
         private void compareButton_Click(object sender, EventArgs e)
         {
-            //var text1 = new Text();
-            //var text2 = new Text();
-            //try
-            //{
-            //    text1 = fileWorker.ReadFile(FIRST_FILE_FILEPATH);
-            //    text2 = fileWorker.ReadFile(SECOND_FILE_FILEPATH);
-            //}
-            //catch (Exception e)
-            //{
-            //    view.DisplayText(e.Message);
-            //}
+            try
+            {
+                firstText = fileWorker.ReadFile(firstFileTextBox.Text);
+                secondText = fileWorker.ReadFile(secondFileTextBox.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Couldn't open file!", "Error!", MessageBoxButtons.OK ,MessageBoxIcon.Error);
+            }
+
+            this.Visible = false;
+            difference = new Difference(this, textComparator, firstText, secondText);
+            difference.Show();
+
         }
 
-        private void firstFileButton_Click(object sender, EventArgs e)
+        private void fileButton_Click(object sender, EventArgs e)
         {
             DialogResult result = openFileDialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-
+                if (sender.Equals(firstFileButton))
+                { 
+                    firstFileTextBox.Text = openFileDialog.FileName;
+                }   
+                else if (sender.Equals(secondFileButton))
+                {
+                    secondFileTextBox.Text = openFileDialog.FileName;
+                }
             }
+
+            if (String.IsNullOrEmpty(firstFileTextBox.Text) || String.IsNullOrEmpty(secondFileTextBox.Text))
+                return;
+            compareButton.Enabled = true;
         }
     }
 }

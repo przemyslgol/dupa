@@ -30,7 +30,7 @@ namespace TextComparatorGUI
         private void InitializeComponent()
         {
             this.firstFileLabel = new System.Windows.Forms.Label();
-            this.firstFIleTextBox = new System.Windows.Forms.TextBox();
+            this.firstFileTextBox = new System.Windows.Forms.TextBox();
             this.secondFileTextBox = new System.Windows.Forms.TextBox();
             this.secondFileLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
@@ -49,14 +49,14 @@ namespace TextComparatorGUI
             this.firstFileLabel.TabIndex = 0;
             this.firstFileLabel.Text = "First file";
             // 
-            // firstFIleTextBox
+            // firstFileTextBox
             // 
-            this.firstFIleTextBox.Location = new System.Drawing.Point(101, 35);
-            this.firstFIleTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.firstFIleTextBox.Name = "firstFIleTextBox";
-            this.firstFIleTextBox.ReadOnly = true;
-            this.firstFIleTextBox.Size = new System.Drawing.Size(214, 27);
-            this.firstFIleTextBox.TabIndex = 1;
+            this.firstFileTextBox.Location = new System.Drawing.Point(101, 35);
+            this.firstFileTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.firstFileTextBox.Name = "firstFileTextBox";
+            this.firstFileTextBox.ReadOnly = true;
+            this.firstFileTextBox.Size = new System.Drawing.Size(214, 27);
+            this.firstFileTextBox.TabIndex = 1;
             // 
             // secondFileTextBox
             // 
@@ -94,10 +94,11 @@ namespace TextComparatorGUI
             this.firstFileButton.TabIndex = 5;
             this.firstFileButton.Text = "Open FIle";
             this.firstFileButton.UseVisualStyleBackColor = true;
-            this.firstFileButton.Click += new System.EventHandler(this.firstFileButton_Click);
+            this.firstFileButton.Click += new System.EventHandler(this.fileButton_Click);
             // 
             // compareButton
             // 
+            this.compareButton.Enabled = false;
             this.compareButton.Location = new System.Drawing.Point(158, 120);
             this.compareButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.compareButton.Name = "compareButton";
@@ -116,6 +117,7 @@ namespace TextComparatorGUI
             this.secondFileButton.TabIndex = 7;
             this.secondFileButton.Text = "Open file";
             this.secondFileButton.UseVisualStyleBackColor = true;
+            this.secondFileButton.Click += new System.EventHandler(this.fileButton_Click);
             // 
             // OpenFile
             // 
@@ -128,7 +130,7 @@ namespace TextComparatorGUI
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.secondFileLabel);
             this.Controls.Add(this.secondFileTextBox);
-            this.Controls.Add(this.firstFIleTextBox);
+            this.Controls.Add(this.firstFileTextBox);
             this.Controls.Add(this.firstFileLabel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "OpenFile";
@@ -141,7 +143,7 @@ namespace TextComparatorGUI
         #endregion
 
         private System.Windows.Forms.Label firstFileLabel;
-        private System.Windows.Forms.TextBox firstFIleTextBox;
+        private System.Windows.Forms.TextBox firstFileTextBox;
         private System.Windows.Forms.TextBox secondFileTextBox;
         private System.Windows.Forms.Label secondFileLabel;
         private System.Windows.Forms.Label descriptionLabel;

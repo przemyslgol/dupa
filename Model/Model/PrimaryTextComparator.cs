@@ -10,6 +10,7 @@ namespace FileComparator
         private bool mergeReady = false;
         private bool unresolvedConflict = false;
         private List<KeyValuePair<int, string>> listOfTexts;
+        public List<KeyValuePair<int, string>> ListOfTexts { get => listOfTexts; }
         private Text resultText;
         private (Text, Text) conflict = (new Text(), new Text());
         public Text ResultText

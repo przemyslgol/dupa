@@ -29,8 +29,8 @@ namespace TextComparatorGUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.firstTextBox = new System.Windows.Forms.RichTextBox();
+            this.secondTextBox = new System.Windows.Forms.RichTextBox();
             this.diffPrev = new System.Windows.Forms.Button();
             this.diffNext = new System.Windows.Forms.Button();
             this.diffConst = new System.Windows.Forms.Label();
@@ -43,29 +43,32 @@ namespace TextComparatorGUI
             this.diffSecondRest = new System.Windows.Forms.Button();
             this.diffDeleteRest = new System.Windows.Forms.Button();
             this.diffDone = new System.Windows.Forms.Button();
+            this.backToOpenFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // firstTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 34);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox1.Size = new System.Drawing.Size(389, 650);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.firstTextBox.Location = new System.Drawing.Point(12, 34);
+            this.firstTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.firstTextBox.Name = "firstTextBox";
+            this.firstTextBox.ReadOnly = true;
+            this.firstTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.firstTextBox.Size = new System.Drawing.Size(389, 650);
+            this.firstTextBox.TabIndex = 0;
+            this.firstTextBox.Text = "";
+            this.firstTextBox.UseWaitCursor = true;
             // 
-            // richTextBox2
+            // secondTextBox
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(600, 34);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox2.Size = new System.Drawing.Size(420, 650);
-            this.richTextBox2.TabIndex = 1;
-            this.richTextBox2.Text = "";
+            this.secondTextBox.Location = new System.Drawing.Point(600, 34);
+            this.secondTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.secondTextBox.Name = "secondTextBox";
+            this.secondTextBox.ReadOnly = true;
+            this.secondTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.secondTextBox.Size = new System.Drawing.Size(420, 650);
+            this.secondTextBox.TabIndex = 1;
+            this.secondTextBox.Text = "";
+            this.secondTextBox.UseWaitCursor = true;
             // 
             // diffPrev
             // 
@@ -76,6 +79,7 @@ namespace TextComparatorGUI
             this.diffPrev.TabIndex = 2;
             this.diffPrev.Text = "Previous";
             this.diffPrev.UseVisualStyleBackColor = true;
+            this.diffPrev.UseWaitCursor = true;
             this.diffPrev.Click += new System.EventHandler(this.diffPrev_Click);
             // 
             // diffNext
@@ -87,24 +91,27 @@ namespace TextComparatorGUI
             this.diffNext.TabIndex = 3;
             this.diffNext.Text = "Next";
             this.diffNext.UseVisualStyleBackColor = true;
+            this.diffNext.UseWaitCursor = true;
             // 
             // diffConst
             // 
             this.diffConst.AutoSize = true;
-            this.diffConst.Location = new System.Drawing.Point(449, 260);
+            this.diffConst.Location = new System.Drawing.Point(439, 257);
             this.diffConst.Name = "diffConst";
             this.diffConst.Size = new System.Drawing.Size(81, 20);
             this.diffConst.TabIndex = 4;
             this.diffConst.Text = "Difference:";
+            this.diffConst.UseWaitCursor = true;
             // 
             // diffCount
             // 
             this.diffCount.AutoSize = true;
-            this.diffCount.Location = new System.Drawing.Point(532, 260);
+            this.diffCount.Location = new System.Drawing.Point(522, 257);
             this.diffCount.Name = "diffCount";
             this.diffCount.Size = new System.Drawing.Size(29, 20);
             this.diffCount.TabIndex = 5;
             this.diffCount.Text = "x/y";
+            this.diffCount.UseWaitCursor = true;
             // 
             // diffJump
             // 
@@ -115,6 +122,7 @@ namespace TextComparatorGUI
             this.diffJump.TabIndex = 6;
             this.diffJump.Text = "Jump to";
             this.diffJump.UseVisualStyleBackColor = true;
+            this.diffJump.UseWaitCursor = true;
             // 
             // diffFirst
             // 
@@ -125,6 +133,7 @@ namespace TextComparatorGUI
             this.diffFirst.TabIndex = 7;
             this.diffFirst.Text = "<-";
             this.diffFirst.UseVisualStyleBackColor = true;
+            this.diffFirst.UseWaitCursor = true;
             // 
             // diffSecond
             // 
@@ -135,6 +144,7 @@ namespace TextComparatorGUI
             this.diffSecond.TabIndex = 8;
             this.diffSecond.Text = "->";
             this.diffSecond.UseVisualStyleBackColor = true;
+            this.diffSecond.UseWaitCursor = true;
             // 
             // diffDelete
             // 
@@ -145,6 +155,7 @@ namespace TextComparatorGUI
             this.diffDelete.TabIndex = 9;
             this.diffDelete.Text = "X";
             this.diffDelete.UseVisualStyleBackColor = true;
+            this.diffDelete.UseWaitCursor = true;
             // 
             // diffFirstRest
             // 
@@ -155,6 +166,7 @@ namespace TextComparatorGUI
             this.diffFirstRest.TabIndex = 10;
             this.diffFirstRest.Text = "<<-";
             this.diffFirstRest.UseVisualStyleBackColor = true;
+            this.diffFirstRest.UseWaitCursor = true;
             // 
             // diffSecondRest
             // 
@@ -165,6 +177,7 @@ namespace TextComparatorGUI
             this.diffSecondRest.TabIndex = 11;
             this.diffSecondRest.Text = "->>";
             this.diffSecondRest.UseVisualStyleBackColor = true;
+            this.diffSecondRest.UseWaitCursor = true;
             // 
             // diffDeleteRest
             // 
@@ -175,22 +188,35 @@ namespace TextComparatorGUI
             this.diffDeleteRest.TabIndex = 12;
             this.diffDeleteRest.Text = "(X)";
             this.diffDeleteRest.UseVisualStyleBackColor = true;
+            this.diffDeleteRest.UseWaitCursor = true;
             // 
             // diffDone
             // 
-            this.diffDone.Location = new System.Drawing.Point(452, 611);
+            this.diffDone.Location = new System.Drawing.Point(452, 593);
             this.diffDone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.diffDone.Name = "diffDone";
             this.diffDone.Size = new System.Drawing.Size(86, 35);
             this.diffDone.TabIndex = 13;
             this.diffDone.Text = "Done";
             this.diffDone.UseVisualStyleBackColor = true;
+            this.diffDone.UseWaitCursor = true;
+            // 
+            // backToOpenFile
+            // 
+            this.backToOpenFile.Location = new System.Drawing.Point(447, 664);
+            this.backToOpenFile.Name = "backToOpenFile";
+            this.backToOpenFile.Size = new System.Drawing.Size(94, 29);
+            this.backToOpenFile.TabIndex = 14;
+            this.backToOpenFile.Text = "Back";
+            this.backToOpenFile.UseVisualStyleBackColor = true;
+            this.backToOpenFile.UseWaitCursor = true;
             // 
             // Difference
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1043, 769);
+            this.Controls.Add(this.backToOpenFile);
             this.Controls.Add(this.diffDone);
             this.Controls.Add(this.diffDeleteRest);
             this.Controls.Add(this.diffSecondRest);
@@ -203,11 +229,13 @@ namespace TextComparatorGUI
             this.Controls.Add(this.diffConst);
             this.Controls.Add(this.diffNext);
             this.Controls.Add(this.diffPrev);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.secondTextBox);
+            this.Controls.Add(this.firstTextBox);
+            this.Enabled = false;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Difference";
             this.Text = "Form2";
+            this.UseWaitCursor = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,8 +243,8 @@ namespace TextComparatorGUI
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox firstTextBox;
+        private System.Windows.Forms.RichTextBox secondTextBox;
         private System.Windows.Forms.Button diffPrev;
         private System.Windows.Forms.Button diffNext;
         private System.Windows.Forms.Label diffConst;
@@ -229,5 +257,6 @@ namespace TextComparatorGUI
         private System.Windows.Forms.Button diffSecondRest;
         private System.Windows.Forms.Button diffDeleteRest;
         private System.Windows.Forms.Button diffDone;
+        private System.Windows.Forms.Button backToOpenFile;
     }
 }
