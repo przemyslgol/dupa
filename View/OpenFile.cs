@@ -34,7 +34,7 @@ namespace TextComparatorGUI
             compareButton.Enabled = false;
             this.Show();
         }
-
+        
         private void compareButton_Click(object sender, EventArgs e)
         {
             try
