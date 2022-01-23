@@ -92,7 +92,7 @@ namespace TextComparatorGUI
                     richTextBox.SelectionColor = Color.Red;
                     textBoxConflicts.Add(counter + 1, text.Item1);
                 }
-                richTextBox.AppendText(text.Item3 + $" []");
+                richTextBox.AppendText(text.Item3 + $" [{text.Item1}]");
                 counter += text.Item3.Length;
             }
         }
