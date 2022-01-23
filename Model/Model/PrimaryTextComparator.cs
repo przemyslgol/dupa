@@ -73,7 +73,7 @@ namespace FileComparator
             var diff = DiffLineMode(text1.Content, text2.Content);
             dmp.diff_cleanupSemantic(diff);
             SplitToBlocks(diff);
-        } 
+        }
 
         private void SplitToBlocks(List<Diff> diffSToSplit)
         {

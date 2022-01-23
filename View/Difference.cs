@@ -13,27 +13,33 @@ namespace TextComparatorGUI
 {
     public partial class Difference : System.Windows.Forms.Form
     {
-        Form previousForm;
+        public OpenFile previousForm;
+        public Result nextForm;
+
         private Text firstText;
         private Text secondText;
         private ITextComparator textComparator;
-        private List<Tuple<int, ConflictEnum, string>> firstListOfText = new List<Tuple<int, ConflictEnum, string>>();
-        private List<Tuple<int, ConflictEnum, string>> secondListOfText = new List<Tuple<int, ConflictEnum, string>>();
-        private Dictionary<int, int> firstTextBoxConflicts = new Dictionary<int, int>();
-        private Dictionary<int, int> secondTextBoxConflicts = new Dictionary<int, int>();
-        public Difference(Form previousForm, ITextComparator textComparator, Text firstText, Text secondText)
+        private List<Tuple<int, ConflictEnum, string>> firstListOfText, secondListOfText;
+        private Dictionary<int, int> firstTextBoxConflicts, secondTextBoxConflicts;
+
+        public Difference(ITextComparator textComparator)
         {
-            this.previousForm = previousForm;
-            this.firstText = firstText;
-            this.secondText = secondText;
             this.textComparator = textComparator;
             InitializeComponent();
-            Compare();
         }
 
-        private void diffPrev_Click(object sender, EventArgs e)
+        public void initialize(Text firstText, Text secondText)
         {
-
+            this.firstText = firstText;
+            this.secondText = secondText;
+            firstListOfText = new List<Tuple<int, ConflictEnum, string>>();
+            secondListOfText = new List<Tuple<int, ConflictEnum, string>>();
+            firstTextBoxConflicts = new Dictionary<int, int>();
+            secondTextBoxConflicts = new Dictionary<int, int>();
+            firstTextBox.Clear();
+            secondTextBox.Clear();
+            Compare();
+            this.Show();
         }
 
         private void Compare()
@@ -44,6 +50,17 @@ namespace TextComparatorGUI
             fillTextBox(firstTextBox, firstListOfText, firstTextBoxConflicts);
             fillTextBox(secondTextBox, secondListOfText, secondTextBoxConflicts);
             this.Enabled = true;
+        }
+
+        private void backToOpenFile_Click(object sender, EventArgs e)
+        {
+            previousForm.initialize();
+            this.Hide();
+        }
+
+        private void diffJump_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void splitDifferences(List<KeyValuePair<int, string>> listOfTexts)
@@ -75,7 +92,7 @@ namespace TextComparatorGUI
                     richTextBox.SelectionColor = Color.Red;
                     textBoxConflicts.Add(counter + 1, text.Item1);
                 }
-                richTextBox.AppendText(text.Item3);
+                richTextBox.AppendText(text.Item3 + $" []");
                 counter += text.Item3.Length;
             }
         }
